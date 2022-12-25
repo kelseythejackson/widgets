@@ -23,7 +23,12 @@ const Dropdown = ({ options, label, selected, onSelectedChange }) => {
       return null;
     }
     return (
-      <div onClick={() => onSelectedChange(option)} key={option.value} className="item">
+      <div
+        onClick={() => onSelectedChange(option)}
+        key={option.value}
+        className="item"
+        style={{ color: option.value }}
+      >
         {option.label}
       </div>
     );
@@ -37,7 +42,9 @@ const Dropdown = ({ options, label, selected, onSelectedChange }) => {
           className={`ui selection dropdown ${open ? 'visible active' : ''}`}
         >
           <i className="dropdown icon"></i>
-          <div className="text">{selected.label}</div>
+          <div className="text" style={{ color: selected.value }}>
+            {selected.label}
+          </div>
           <div className={`menu ${open ? 'visible transition' : ''}`}>{renderedOptions}</div>
         </div>
       </div>
